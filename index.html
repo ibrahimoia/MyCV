@@ -1,3 +1,6 @@
+HTML
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,7 @@
       --primary: #0b4f6c;
       --primary-dark: #07384d;
       --accent: #01baef;
+      --accent-gold: #e2b714;
       --bg-body: #f0f4f8;
       --bg-card: #f8fafc;
       --text-main: #2d3748;
@@ -16,7 +20,9 @@
       --border-color: #e2e8f0;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -27,7 +33,7 @@
       line-height: 1.65;
       color: var(--text-main);
       background-color: var(--bg-body);
-      padding: 20px;
+      padding: 24px 16px;
     }
 
     .container {
@@ -43,49 +49,88 @@
     .header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: #ffffff;
-      padding: 45px 40px;
+      padding: 44px 40px 36px;
       text-align: center;
     }
 
-    .header h1 {
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+    .profile-img {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      object-fit: cover;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+      background-color: var(--primary-dark);
     }
 
-    .header h2 {
-      font-size: 1.2rem;
+    .header h1 {
+      font-size: 2.35rem;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+    }
+
+    .header .role-title {
+      font-size: 1.15rem;
       font-weight: 400;
       color: #e0f2fe;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
-    .contact {
+    /* Button Links */
+    .contact-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px 25px;
-      font-size: 0.95rem;
+      gap: 12px 14px;
+      margin-bottom: 22px;
     }
 
-    .contact span,
-    .contact a {
-      color: #ffffff;
-      text-decoration: none;
+    .btn-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s ease;
+      gap: 8px;
+      padding: 9px 18px;
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .contact a {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-      padding-bottom: 2px;
+    .btn-link:hover,
+    .btn-link:focus-visible {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      outline: none;
     }
 
-    .contact a:hover {
-      opacity: 0.85;
-      border-bottom-color: #ffffff;
+    .contact-meta {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 14px;
+      font-size: 0.92rem;
+      color: #f1f5f9;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+    }
+
+    .contact-meta a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .contact-meta a:hover,
+    .contact-meta a:focus-visible {
+      text-decoration: underline;
+      outline: none;
     }
 
     /* Sections */
@@ -98,10 +143,10 @@
       border-bottom: none;
     }
 
-    .section h3 {
+    .section h2 {
       color: var(--primary);
       margin-bottom: 18px;
-      font-size: 1.45rem;
+      font-size: 1.35rem;
       border-left: 5px solid var(--primary);
       padding-left: 12px;
       text-transform: uppercase;
@@ -136,14 +181,14 @@
     .skill-box strong {
       display: block;
       color: var(--primary);
-      font-size: 1.05rem;
+      font-size: 1.03rem;
       margin-bottom: 4px;
     }
 
     /* Experience */
     .experience {
-      margin-bottom: 28px;
-      padding-bottom: 20px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
       border-bottom: 1px dashed var(--border-color);
     }
 
@@ -154,13 +199,13 @@
     }
 
     .company {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--primary);
       font-weight: 700;
     }
 
     .position {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 600;
       color: #475569;
       margin-top: 2px;
@@ -169,6 +214,7 @@
     .date {
       font-size: 0.9rem;
       color: var(--text-muted);
+      margin-top: 2px;
       margin-bottom: 10px;
       font-style: italic;
     }
@@ -195,7 +241,7 @@
     /* Footer */
     .footer {
       text-align: center;
-      padding: 22px;
+      padding: 20px 24px;
       background: var(--primary);
       color: #ffffff;
       font-size: 0.9rem;
@@ -216,11 +262,17 @@
       }
 
       .header h1 {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
       }
 
-      .header h2 {
+      .header .role-title {
         font-size: 1rem;
+      }
+
+      .btn-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
       }
 
       .section {
@@ -230,6 +282,11 @@
 
     /* Print / Save as PDF Styling */
     @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
       body {
         background: #ffffff;
         padding: 0;
@@ -240,8 +297,20 @@
         max-width: 100%;
       }
 
+      .btn-link {
+        background-color: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        transform: none;
+        box-shadow: none;
+      }
+
       .section {
-        padding: 20px 25px;
+        padding: 18px 24px;
+      }
+
+      .skill-box:hover {
+        transform: none;
+        box-shadow: none;
       }
 
       .experience,
@@ -256,147 +325,156 @@
   <div class="container">
 
     <header class="header">
-      <h1>IBRAHIM OMER IBRAHIM</h1>
-      <h2>Asset Management Administrator | Help Desk Coordinator | Data Analyst</h2>
-      <div class="contact">
-        <span>📍 Doha, Qatar</span>
-        <a href="https://ibrahimoia.github.io/my-profile/" target="_blank" rel="noopener noreferrer">🌐 Professional Profile</a>
-        <a href="https://ibrahimoia.github.io/arabic-cv/" target="_blank" rel="noopener noreferrer">🌐 Arabic CV</a>
+      <img src="PHOTO.png" alt="Ibrahim Omer Ibrahim" class="profile-img">
+
+      <h2>IBRAHIM OMER</h2>
+      <p class="role-title">Asset Management Administrator | Help Desk Coordinator | Data Analyst</p>
+
+      <nav class="contact-links" aria-label="Profile and CV links">
+        <a href="https://ibrahimoia.github.io/my-profile/" target="_blank" rel="noopener noreferrer" class="btn-link">Professional Profile</a>
+        <a href="https://ibrahimoia.github.io/arabic-cv/" target="_blank" rel="noopener noreferrer" class="btn-link">Arabic CV</a>
+      </nav>
+
+      <div class="contact-meta">
+        <span>Mob: <a href="tel:+97455730263">00974 55730263</a></span>
+        <span>Email: <a href="mailto:gibrahimoia@gmail.com">gibrahimoia@gmail.com</a></span>
+        <span>Location: Doha, Qatar</span>
       </div>
-      <div>Mob: 00974 55730263 Email:gibrahimoia@gmail.com</div>
     </header>
 
-    <section class="section">
-      <h3>Professional Summary</h3>
-      <p class="summary">
-        Dedicated and results-driven professional with more than 20 years of experience
-        in Asset Management, Facilities Management, Help Desk Operations, Administration,
-        Accounting, Software Development, Data Analytics, and Graphic Design.
-        Proven ability to leverage technology to improve operational efficiency,
-        automate business processes, develop custom applications, manage asset lifecycle
-        activities, and provide actionable business intelligence through advanced data
-        analytics and reporting solutions.
-      </p>
-    </section>
+    <main>
+      <section class="section">
+        <h2>Professional Summary</h2>
+        <p class="summary">
+          Dedicated and results-driven professional with more than 20 years of experience
+          in Asset Management, Facilities Management, Help Desk Operations, Administration,
+          Accounting, Software Development, Data Analytics, and Graphic Design.
+          Proven ability to leverage technology to improve operational efficiency,
+          automate business processes, develop custom applications, manage asset lifecycle
+          activities, and provide actionable business intelligence through advanced data
+          analytics and reporting solutions.
+        </p>
+      </section>
 
-    <section class="section">
-      <h3>Core Expertise</h3>
-      <div class="skills">
-        <div class="skill-box">
-          <strong>Facilities &amp; Asset Management</strong>
-          CAFM, QFM, Asset Audits, Asset Tracking, Preventive Maintenance, Snagging Reports
+      <section class="section">
+        <h2>Core Expertise</h2>
+        <div class="skills">
+          <div class="skill-box">
+            <strong>Facilities &amp; Asset Management</strong>
+            CAFM, QFM, Asset Audits, Asset Tracking, Preventive Maintenance, Snagging Reports
+          </div>
+          <div class="skill-box">
+            <strong>Data Analytics</strong>
+            Power BI, Excel Analytics, KPI Dashboards, Data Visualization
+          </div>
+          <div class="skill-box">
+            <strong>Software Development</strong>
+            Python, Django, Flask, HTML, CSS, JavaScript
+          </div>
+          <div class="skill-box">
+            <strong>Database Management</strong>
+            SQL, PostgreSQL, Microsoft Access
+          </div>
+          <div class="skill-box">
+            <strong>Administration &amp; Reporting</strong>
+            Document Control, Business Processes, Reporting &amp; Compliance
+          </div>
+          <div class="skill-box">
+            <strong>Graphic Design</strong>
+            Adobe Photoshop, Illustrator, InDesign
+          </div>
         </div>
-        <div class="skill-box">
-          <strong>Data Analytics</strong>
-          Power BI, Excel Analytics, KPI Dashboards, Data Visualization
-        </div>
-        <div class="skill-box">
-          <strong>Software Development</strong>
-          Python, Django, Flask, HTML, CSS, JavaScript
-        </div>
-        <div class="skill-box">
-          <strong>Database Management</strong>
-          SQL, PostgreSQL, Microsoft Access
-        </div>
-        <div class="skill-box">
-          <strong>Administration &amp; Reporting</strong>
-          Document Control, Business Processes, Reporting &amp; Compliance
-        </div>
-        <div class="skill-box">
-          <strong>Graphic Design</strong>
-          Adobe Photoshop, Illustrator, InDesign
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <h3>Professional Experience</h3>
+      <section class="section">
+        <h2>Professional Experience</h2>
 
-      <div class="experience">
-        <div class="company">SNC-Lavalin / AtkinsRéalis</div>
-        <div class="position">Help Desk Coordinator | Asset Management Administrator | CSC</div>
-        <div class="date">March 2019 – Present | Qatar</div>
+        <div class="experience">
+          <div class="company">SNC-Lavalin / AtkinsRéalis</div>
+          <div class="position">Help Desk Coordinator | Asset Management Administrator | CSC</div>
+          <div class="date">March 2019 – Present | Qatar</div>
+          <ul>
+            <li>Managed CAFM/QFM systems and work order processes.</li>
+            <li>Conducted asset condition assessments and auditing activities.</li>
+            <li>Prepared snagging reports and asset performance reports.</li>
+            <li>Supported preventive maintenance and lifecycle management.</li>
+            <li>Designed custom software applications using Python and SQL technologies.</li>
+            <li>Developed analytical dashboards using Excel and Power BI.</li>
+            <li>Coordinated tenant requests and maintenance operations.</li>
+          </ul>
+        </div>
+
+        <div class="experience">
+          <div class="company">Granada Deco. &amp; Contracting Co.</div>
+          <div class="position">Accountant &amp; Administration Officer</div>
+          <div class="date">2010 – 2019 | Qatar</div>
+          <ul>
+            <li>Managed accounting operations and financial reporting.</li>
+            <li>Prepared annual balance sheets and financial statements.</li>
+            <li>Handled supplier accounts, payroll, banking transactions, and procurement documents.</li>
+            <li>Performed administrative and PRO-related duties.</li>
+          </ul>
+        </div>
+
+        <div class="experience">
+          <div class="company">International Printing Press &amp; Publication</div>
+          <div class="position">Graphic Designer &amp; IT Specialist</div>
+          <div class="date">2004 – 2009 | Qatar</div>
+          <ul>
+            <li>Designed commercial and corporate branding materials.</li>
+            <li>Created company profiles, brochures, signboards, and business documents.</li>
+          </ul>
+        </div>
+
+        <div class="experience">
+          <div class="company">Rainbow Est.</div>
+          <div class="position">Graphic Designer</div>
+          <div class="date">2002 – 2004 | Qatar</div>
+        </div>
+
+        <div class="experience">
+          <div class="company">Sudaco Investment Co.</div>
+          <div class="position">Administration Officer</div>
+          <div class="date">1997 – 2002 | Sudan</div>
+        </div>
+
+        <div class="experience">
+          <div class="company">Bulgarian Air Lines</div>
+          <div class="position">Public Relations Officer (PRO)</div>
+          <div class="date">1993 – 1997 | Sudan</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Education &amp; Certifications</h2>
         <ul>
-          <li>Managed CAFM/QFM systems and work order processes.</li>
-          <li>Conducted asset condition assessments and auditing activities.</li>
-          <li>Prepared snagging reports and asset performance reports.</li>
-          <li>Supported preventive maintenance and lifecycle management.</li>
-          <li>Designed custom software applications using Python and SQL technologies.</li>
-          <li>Developed analytical dashboards using Excel and Power BI.</li>
-          <li>Coordinated tenant requests and maintenance operations.</li>
+          <li>Diploma in Applied Sciences &amp; Computer Science – Omdurman Ahlia University</li>
+          <li>Data Analyst Certificate – Coursera</li>
+          <li>Power BI Certificate – Coursera</li>
+          <li>First Aid Certificate – Enertech Qatar Safety Training Centre</li>
+          <li>Letter of Credit Certification – High Institute for Banking &amp; Financial Studies, Sudan</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="experience">
-        <div class="company">Granada Deco. &amp; Contracting Co.</div>
-        <div class="position">Accountant &amp; Administration Officer</div>
-        <div class="date">2010 – 2019 | Qatar</div>
-        <ul>
-          <li>Managed accounting operations and financial reporting.</li>
-          <li>Prepared annual balance sheets and financial statements.</li>
-          <li>Handled supplier accounts, payroll, banking transactions and procurement documents.</li>
-          <li>Performed administrative and PRO-related duties.</li>
+      <section class="section">
+        <h2>Technical Skills</h2>
+        <ul class="two-col-list">
+          <li><strong>Programming:</strong> Python, Django, Flask, JavaScript</li>
+          <li><strong>Database:</strong> SQL, PostgreSQL, Microsoft Access</li>
+          <li><strong>Analytics:</strong> Power BI, Advanced Excel</li>
+          <li><strong>Design:</strong> Photoshop, Illustrator, InDesign</li>
+          <li><strong>Microsoft Office:</strong> Excel, Word, PowerPoint, Outlook, Access, Visio</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="experience">
-        <div class="company">International Printing Press &amp; Publication</div>
-        <div class="position">Graphic Designer &amp; IT Specialist</div>
-        <div class="date">2004 – 2009 | Qatar</div>
-        <ul>
-          <li>Designed commercial and corporate branding materials.</li>
-          <li>Created company profiles, brochures, signboards and business documents.</li>
+      <section class="section">
+        <h2>Languages</h2>
+        <ul class="two-col-list">
+          <li>Arabic (Native)</li>
+          <li>English </li>
         </ul>
-      </div>
-
-      <div class="experience">
-        <div class="company">Rainbow Est.</div>
-        <div class="position">Graphic Designer</div>
-        <div class="date">2002 – 2004 | Qatar</div>
-      </div>
-
-      <div class="experience">
-        <div class="company">Sudaco Investment Co.</div>
-        <div class="position">Administration Officer</div>
-        <div class="date">1997 – 2002 | Sudan</div>
-      </div>
-
-      <div class="experience">
-        <div class="company">Bulgarian Air Lines</div>
-        <div class="position">Public Relations Officer (PRO)</div>
-        <div class="date">1993 – 1997 | Sudan</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3>Education &amp; Certifications</h3>
-      <ul>
-        <li>Diploma in Applied Sciences &amp; Computer Science – Omdurman Ahlia University</li>
-        <li>Data Analyst Certificate – Coursera</li>
-        <li>Power BI Certificate – Coursera</li>
-        <li>First Aid Certificate – Enertech Qatar Safety Training Centre</li>
-        <li>Letter of Credit Certification – High Institute for Banking &amp; Financial Studies, Sudan</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h3>Technical Skills</h3>
-      <ul class="two-col-list">
-        <li><strong>Programming:</strong> Python, Django, Flask, JavaScript</li>
-        <li><strong>Database:</strong> SQL, PostgreSQL, Microsoft Access</li>
-        <li><strong>Analytics:</strong> Power BI, Advanced Excel</li>
-        <li><strong>Design:</strong> Photoshop, Illustrator, InDesign</li>
-        <li><strong>Microsoft Office:</strong> Excel, Word, PowerPoint, Outlook, Access, Visio</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h3>Languages</h3>
-      <ul class="two-col-list">
-        <li>Arabic (Native)</li>
-        <li>English </li>
-      </ul>
-    </section>
+      </section>
+    </main>
 
     <footer class="footer">
       © 2026 Ibrahim Omer Ibrahim | Asset Management Administrator | Data Analyst
