@@ -61,7 +61,8 @@
       background-color: var(--primary-dark);
     }
 
-    .header h1 {
+    .header h1,
+    .header h2 {
       font-size: 2.35rem;
       letter-spacing: 0.8px;
       margin-bottom: 6px;
@@ -182,6 +183,75 @@
       margin-bottom: 4px;
     }
 
+    /* Projects Section */
+    .projects-intro,
+    .projects-outro {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .projects-outro {
+      margin-top: 18px;
+      margin-bottom: 16px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      padding: 18px 20px;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 6px 6px 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(11, 79, 108, 0.08);
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      font-size: 0.96rem;
+      color: var(--text-main);
+    }
+
+    .project-cta {
+      margin-top: 14px;
+    }
+
+    .btn-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-project:hover,
+    .btn-project:focus-visible {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(11, 79, 108, 0.2);
+      outline: none;
+    }
+
     /* Experience */
     .experience {
       margin-bottom: 24px;
@@ -258,7 +328,8 @@
         padding: 30px 20px;
       }
 
-      .header h1 {
+      .header h1,
+      .header h2 {
         font-size: 1.85rem;
       }
 
@@ -305,13 +376,16 @@
         padding: 18px 24px;
       }
 
-      .skill-box:hover {
+      .skill-box:hover,
+      .project-card:hover,
+      .btn-project:hover {
         transform: none;
         box-shadow: none;
       }
 
       .experience,
-      .skill-box {
+      .skill-box,
+      .project-card {
         break-inside: avoid;
       }
     }
@@ -330,6 +404,7 @@
       <nav class="contact-links" aria-label="Profile and CV links">
         <a href="https://ibrahimoia.github.io/my-profile/" target="_blank" rel="noopener noreferrer" class="btn-link">Professional Profile</a>
         <a href="https://ibrahimoia.github.io/arabic-cv/" target="_blank" rel="noopener noreferrer" class="btn-link">Arabic CV</a>
+        <a href="https://ibrahimoia.github.io/myjob/" target="_blank" rel="noopener noreferrer" class="btn-link">My Projects</a>
       </nav>
 
       <div class="contact-meta">
@@ -380,6 +455,48 @@
             <strong>Graphic Design</strong>
             Adobe Photoshop, Illustrator, InDesign
           </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>My Projects</h2>
+        <p class="projects-intro">
+          I have designed and developed several software solutions in the fields of accounting,
+          administration, and asset management, combining practical business requirements with
+          modern technology.
+        </p>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Dalil Info – Integrated Accounting System</h3>
+            <p>
+              An integrated accounting system that supports both basic and advanced accounting
+              functions. Accessible through computers, tablets, and mobile devices, it provides
+              a flexible solution for small and medium-sized businesses (SMEs) to manage financial
+              transactions, generate reports, and streamline accounting operations efficiently.
+            </p>
+          </div>
+
+          <div class="project-card">
+            <h3>Asset Condition Assessment &amp; Management System</h3>
+            <p>
+              Enables users to generate professional asset condition reports by evaluating asset
+              conditions and providing intelligent recommendations—indicating whether an asset
+              requires maintenance, repair, or replacement. Assists organizations in making informed
+              decisions, optimizing asset performance, and reducing lifecycle costs.
+            </p>
+          </div>
+        </div>
+
+        <p class="projects-outro">
+          These projects reflect my experience in software design, business process automation,
+          asset management, and digital transformation.
+        </p>
+
+        <div class="project-cta">
+          <a href="https://ibrahimoia.github.io/myjob/" target="_blank" rel="noopener noreferrer" class="btn-project">
+            Visit My Project Website
+          </a>
         </div>
       </section>
 
@@ -468,7 +585,7 @@
         <h2>Languages</h2>
         <ul class="two-col-list">
           <li>Arabic (Native)</li>
-          <li>English </li>
+          <li>English</li>
         </ul>
       </section>
     </main>
